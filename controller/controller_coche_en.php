@@ -8,7 +8,7 @@ function listarCoches(){
 
     $coche1 = new coche(null, null, null, null);
     $coches = $coche1->mostrarCoches();
-    include "view/index_coche.php";
+    include "view/index_coche_en.php";
 
 }
 
@@ -28,7 +28,7 @@ function eliminarCocheController(){
     //iniciarSesion();
     require "model/model_coche.php";
    // require_once "model/model_usuario.php";
-    include "view/index_coche.php";
+    include "view/index_coche_en.php";
 
 
     //$usuario = new usuario(null, null, null);
@@ -39,7 +39,7 @@ function eliminarCocheController(){
 //            if ($_SESSION['u_level'] == 0) {
                 $id_coche = $_GET['id_coche'];
                 $coche1->eliminarCoche($id_coche);
-                echo '<script>alert("Coche Eliminado");window.location.href="index2.php?action=listarCoches&controller=controller_coche"</script>';
+                echo '<script>alert("Car Deleted");window.location.href="index2_en.php?action=listarCoches&controller=controller_coche_en"</script>';
 //                header("Location:view/index_topic.php");
             } /*else {
 
@@ -60,7 +60,7 @@ function iniciarSesion(){
 
 function formularioAnadirCoche(){
     //iniciarSesion();
-    require "view/new_coche.php";
+    require "view/new_coche_en.php";
 }
 
 function anadirCoche() {
@@ -73,48 +73,16 @@ function anadirCoche() {
             //$id_usuario = $usuario->getId($_SESSION['user']);
             $coche = new coche($_POST['marca'], $_POST['modelo'], $_POST['matricula'], $_POST['disponible']);
             $coche->crearCoche();
-            echo '<script>alert("Coche creado");window.location.href="index2.php?action=listarCoches&controller=controller_coche"</script>';
+            echo '<script>alert("Car Created");window.location.href="index2_en.php?action=listarCoches&controller=controller_coche_en"</script>';
             //header("Location:index2.php");
         } else {
-            echo '<script>alert("Debes indicar la matrícula del coche");window.location.href="index2.php?action=formularioAnadirCoche&controller=controller_coche"</script>';
+            echo '<script>alert("You must indicate the car license plate number");window.location.href="index2_en.php?action=formularioAnadirCoche&controller=controller_coche_en"</script>';
         }
 
 
 }
 
-function formularioModificarOficina(){
-    iniciarSesion();
-    require "view/mod_categorie.php";
-}
 
-function modificarOficinaController(){
-    iniciarSesion();
-    require "model/model_oficina.php";
-    require_once "model/model_usuario.php";
-//    require "view/index_oficina.php";
-
-
-
-    $usuario = new usuario(null, null, null);
-    $categoria1 = new coche(null, null);
-
-    if (isset($_GET['id_categoria'])) {
-        if ($_SESSION['u_level'] == 0) {
-            $id_categoria = $_GET['id_categoria'];
-            $cat_name = $_POST['cat_name']; // Obtener el valor del título de la categoría modificado
-            $categoria1->modificarCategoria($id_categoria, $cat_name);
-            echo '<script>alert("Categoría modificada");window.location.href="index2.php?action=listarCategorias&controller=controller_categorie"</script>';
-//                header("Location:view/index_topic.php");
-        } /*else {
-
-                echo '<script>alert("Solo puede borrar el tema si se registra como administrador");
-                        window.location.href="index2.php?action=listarCategorias&controller=controller_categorie"</script>';
-
-            }*/
-
-    }
-
-}
 
 
 

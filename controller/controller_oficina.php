@@ -6,7 +6,7 @@ function listarOficinas(){
     require_once "model/model_oficina.php";
 
 
-    $oficina1 = new oficina(null, null, null,null,null);
+    $oficina1 = new usuario(null, null, null,null,null);
     $oficinas = $oficina1->mostrarOficinas();
     include "view/index_oficina.php";
 
@@ -32,7 +32,7 @@ function eliminarOficinaController(){
 
 
     //$usuario = new usuario(null, null, null);
-    $oficina1 = new oficina(null, null, null, null, null);
+    $oficina1 = new usuario(null, null, null, null, null);
 
     if (isset($_GET['id_oficina'])) {
             //if ($_SESSION['u_level'] == 0) {
@@ -66,13 +66,13 @@ function formularioAnadirOficina(){
 function anadirOficina() {
    // iniciarSesion();
     require_once "model/model_oficina.php";
-    require_once "model/model_usuario.php";
+
 
   //  if (isset($_SESSION['user'])) {                                //Comprueba que la sesion este iniciada
         if (isset($_POST['submit']) && !empty($_POST['nombre'])) {   ////Comprueba que hay texto en el titulo y que se ha pulsado el boton de submit
             //$usuario = new usuario(null, null, null);
             //$id_usuario = $usuario->getId($_SESSION['user']);
-            $oficina = new oficina ($_POST['nombre'], $_POST['direccion'], $_POST['email'], $_POST['telefono'], $_POST['num_trabajadores']);
+            $oficina = new usuario ($_POST['nombre'], $_POST['direccion'], $_POST['email'], $_POST['telefono'], $_POST['num_trabajadores']);
             $oficina->crearOficina();
             echo '<script>alert("Oficina creada");window.location.href="index2.php?action=listarOficinas&controller=controller_oficina"</script>';
             //header("Location:index2.php");

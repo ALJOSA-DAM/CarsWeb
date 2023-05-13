@@ -9,56 +9,49 @@ class usuario{
 
     public $nombre;             //Título de la categoría
 
-    public $direccion;
-    public $telefono;
-    public $num_trabajadores;
-    public $email;
+    public $apellidos;
+    public $fecha_nacimiento;
+    public $dni;
+
 
     public $conexion;           //Objeto que permite conectar con la bbdd
 
     //Constructor de la clase
-    public function __construct($nombre, $direccion, $email, $telefono, $num_trabajadores)
+    public function __construct($nombre, $apellidos, $fecha_nacimiento, $dni)
     {
         $this->conexion = new Conexion();
         $this->nombre = $nombre;
-        $this->direccion = $direccion;
-        $this->email = $email;
-        $this->telefono = $telefono;
-        $this->num_trabajadores = $num_trabajadores;
+        $this->apellidos = $apellidos;
+        $this->dni = $dni;
+        $this->fecha_nacimiento = $fecha_nacimiento;
+
 
     }
 
     //Metodo que permite listar todas las oficinas
-    public function mostrarOficinas()
+    public function mostrarUsuarios()
     {
         $this->conexion->conectar();
-        $oficinas = $this->conexion->consultar("SELECT * FROM oficinas");
+        $usuarios = $this->conexion->consultar("SELECT * FROM usuarios");
 
         $this->conexion->desconectar();
-        return $oficinas;
+        return $usuarios;
 
     }
 
     //Metodo que permite crear las categorias
-    public function crearOficina()
+    public function crearUsuario()
     {
         $this->conexion->conectar();
-        $this->conexion->ejecutar("INSERT INTO oficinas(nombre, direccion, email, telefono, num_trabajadores) VALUES ('$this->nombre', '$this->direccion','$this->email','$this->telefono','$this->num_trabajadores')");
+        $this->conexion->ejecutar("INSERT INTO usuarios(nombre, apellidos, dni, fecha_nacimiento) VALUES ('$this->nombre', '$this->apellidos','$this->dni','$this->fecha_nacimiento')");
         $this->conexion->desconectar();
     }
 
     //Metodo que permite eliminar las categorias
-    public function eliminarOficina($id_oficina)
+    public function eliminarUsuario($id_usuario)
     {
         $this->conexion->conectar();
-        $this->conexion->ejecutar("DELETE FROM oficinas WHERE id = '$id_oficina'");
-        $this->conexion->desconectar();
-    }
-
-    public function modificarCategoria($categoria, $catName)
-    {
-        $this->conexion->conectar();
-        $this->conexion->ejecutar("UPDATE categories SET cat_name = '$catName' WHERE cat_id = '$categoria'");
+        $this->conexion->ejecutar("DELETE FROM usuarios WHERE id = '$id_usuario'");
         $this->conexion->desconectar();
     }
 
