@@ -29,15 +29,15 @@
         <div>
             <nav>
                 <ul>
-                    <li><a href="index2.php">Inicio</a>
-                    <li><a href="index2.php?action=listarUsuarios&controller=controller_usuario">Usuarios</a>
-                    <li><a href="index2.php?action=listarOficinas&controller=controller_oficina">Oficinas</a>
-                    <li><a href="index2.php?action=ListarCoches&controller=controller_coche">Coches</a>
+                    <li><a href="index2_en.php">Home</a>
+                    <li><a href="index2_en.php?action=listarUsuarios&controller=controller_usuario_en">Users</a>
+                    <li><a href="index2_en.php?action=listarOficinas&controller=controller_oficina_en">Offices</a>
+                    <li><a href="index2_en.php?action=ListarCoches&controller=controller_coche_en">Cars</a>
 <!--                    <li><a href="index2.php?action=listarTemas&controller=controller_tema">Listado Temas</a>-->
-                    <li><a href="index2.php?action=mostrarFormContacto&controller=controller_consulta">Contacto</a></li>
+                    <li><a href="index2_en.php?action=mostrarFormContacto&controller=controller_consulta_en">Contac</a></li>
 <!--                    <li><a href="index2.php?action=cerrarSesion&controller=controller_usuario">Cerrar sesion</a>-->
                 </ul>
-                <a href="index2_en.php"><img src="../imagenes/eng_flag.jpg" class="flag"></a>
+                <a href="index2.php"><img src="../imagenes/spa_flag.jpg" class="flag"></a>
             </nav>
         </div>
         <div>
