@@ -22,7 +22,7 @@
         <!--Content before waves-->
         <div class="inner-header">
 
-            <h1>SBAR COMPANY</h1>
+            <h1>ALJOSA COMPANY</h1>
         </div>
 
         <!-- Menu Container-->
